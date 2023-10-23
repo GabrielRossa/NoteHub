@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.widget.LinearLayout
 import android.widget.PopupMenu
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.widget.SearchView
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModelProvider
@@ -18,13 +19,15 @@ import com.example.notehub.data.NoteDataBaseSQL
 import com.example.notehub.databinding.ActivityMainBinding
 import com.example.notehub.models.Note
 import com.example.notehub.models.NoteViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), NotesAdapter.NotesClickListener, PopupMenu.OnMenuItemClickListener {
 
     private lateinit var binding : ActivityMainBinding
     private lateinit var dataBase: NoteDataBaseSQL
-    lateinit var viewModel : NoteViewModel
+    val viewModel: NoteViewModel by viewModels()
     lateinit var adapter: NotesAdapter
     lateinit var selectedNote : Note
 
@@ -45,8 +48,6 @@ class MainActivity : AppCompatActivity(), NotesAdapter.NotesClickListener, Popup
         //Iniciando a UI
         initUI()
 
-        viewModel = ViewModelProvider(this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(NoteViewModel::class.java)
 
         lifecycleScope.launch {
             viewModel.allNotes.collect { list ->
@@ -55,9 +56,7 @@ class MainActivity : AppCompatActivity(), NotesAdapter.NotesClickListener, Popup
                 }
             }
         }
-
         dataBase = NoteDataBaseSQL.getDatabase(this)
-
     }
 
     private fun initUI() {

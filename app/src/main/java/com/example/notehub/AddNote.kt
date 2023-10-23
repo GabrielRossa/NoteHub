@@ -8,10 +8,12 @@ import android.widget.Toast
 import com.example.notehub.databinding.ActivityAddNoteBinding
 import com.example.notehub.databinding.ActivityMainBinding
 import com.example.notehub.models.Note
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.logging.SimpleFormatter
 
+@AndroidEntryPoint
 class AddNote : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddNoteBinding

@@ -3,8 +3,11 @@ package com.example.notehub.data
 import androidx.lifecycle.LiveData
 import com.example.notehub.models.Note
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class NotesRepository(private val noteDao: NoteDao) {
+
+class NotesRepository
+    @Inject constructor(private val noteDao: NoteDao) {
 
     val allNotes : Flow<List<Note>> = noteDao.getAllNotes()
 

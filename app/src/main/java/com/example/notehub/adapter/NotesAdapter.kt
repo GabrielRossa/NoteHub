@@ -31,7 +31,12 @@ class NotesAdapter(private val context: Context, val listener: NotesClickListene
         holder.title.text = currentNote.title
         holder.title.isSelected = true
 
-        holder.note_tv.text = currentNote.note
+        if (!currentNote.note.isNullOrEmpty() && currentNote.note!!.length >= 50) {
+            holder.note_tv.text = currentNote.note?.take(50) + "..."
+        }else{
+            holder.note_tv.text = currentNote.note.orEmpty()
+        }
+
         holder.date.text = currentNote.date
         holder.date.isSelected = true
 
