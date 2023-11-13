@@ -24,7 +24,6 @@ abstract class NoteDataBaseSQL : RoomDatabase(){
                     NoteDataBaseSQL::class.java,
                     DATABASE_NAME
                 ).build()
-
                 INSTANCE = instance
 
                 instance

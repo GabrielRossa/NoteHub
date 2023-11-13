@@ -11,10 +11,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.widget.SearchView
 import androidx.cardview.widget.CardView
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.notehub.adapter.NotesAdapter
+import com.example.notehub.addNote.AddNote
 import com.example.notehub.data.NoteDataBaseSQL
 import com.example.notehub.databinding.ActivityMainBinding
 import com.example.notehub.models.Note

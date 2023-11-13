@@ -30,7 +30,7 @@ class NoteViewModel
     }
 
     fun updateNote(note: Note) = viewModelScope.launch(Dispatchers.IO){
-        repository.update(note)
+        repository.insert(note)
     }
 
 }

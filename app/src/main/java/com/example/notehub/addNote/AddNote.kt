@@ -1,4 +1,4 @@
-package com.example.notehub
+package com.example.notehub.addNote
 
 import android.app.Activity
 import android.content.Intent
@@ -6,12 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.notehub.databinding.ActivityAddNoteBinding
-import com.example.notehub.databinding.ActivityMainBinding
 import com.example.notehub.models.Note
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Date
-import java.util.logging.SimpleFormatter
 
 @AndroidEntryPoint
 class AddNote : AppCompatActivity() {
@@ -48,11 +46,11 @@ class AddNote : AppCompatActivity() {
 
                 if(isUpdate){
                     note = Note(
-                        old_note.id, title, note_desc, formatter.format(Date())
+                        old_note.id, "", title, note_desc, formatter.format(Date())
                     )
                 }else{
                     note = Note(
-                        null, title, note_desc, formatter.format(Date())
+                        null, "", title, note_desc, formatter.format(Date())
                     )
                 }
 

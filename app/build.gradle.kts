@@ -4,6 +4,8 @@ plugins {
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
 
+    //Firebase
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -65,6 +67,11 @@ dependencies {
     implementation ("com.google.dagger:hilt-android:2.47")
     kapt ("com.google.dagger:hilt-compiler:2.47")
 
+    //Firebase
+    implementation(platform("com.google.firebase:firebase-bom:32.5.0"))
+    implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-storage-ktx")
+    implementation("io.coil-kt:coil:2.4.0")
 }
 kapt {
     correctErrorTypes = true
